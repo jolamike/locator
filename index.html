@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta name="viewport" content="width=320; user-scalable=no" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <title>Geo-Locator(MSc. Project)</title>
+        <link rel="stylesheet" type="text/css" href="css/map.css" />
+
+  </head>
+  <body onload="init();" id="stage" class="theme">
+ 
+    <!-- Start of Home page -->
+<div data-role="page" id="home">
+
+	<div data-role="header">
+	
+		<h1 id="welcomeMsg"></h1>
+	
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#home" data-transition="none" data-icon="home">Home</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div data-role="content">
+		<p>Welcome to Geo-Locator <em>Mobile Location-Based Service</em> app.Find places closest to you on the move. <em>www.geolinqme.com</em>.</p>	    
+    <div data-role="fieldcontain" class="">
+        <label for="track_id">Find:</label><br />
+        <input type="text" id="defloctype" name="defloctype" placeholder="hotel"/> <br />
+        <label for="track_id">In / around:</label> <a href="#" class="btn large" onclick="getLocation();"> {my location}</a><br />
+        <p id="geolocation">Finding geolocation...</p>
+        <input type="text" id="address" name="address" placeholder="University of lagos, lagos"/><br />
+        <label for="track_id">Search radius in (Km)</label><br />
+              <select id="maxdistance" name="maxdistance">
+                <option value="1.5">1.5 Kilometers</option>
+                <option value="3.5">3.5 Kilometers</option>
+                <option value="8.5">8.5 Kilometers</option>
+                <option value="12.5">12.5 Kilometers</option>
+                <option value="25.5">25.5 Kilometers</option>
+                <option value="65.5">65.5 Kilometers</option>
+              </select>
+      </div>
+      <a href="#track_info" data-role="button" id="mysubmit">map it</a>
+	</div>
+
+
+</div>
+<!-- End of Home page -->
+
+
+<!-- Track Info page -->
+<div data-role="page" id="track_info">
+
+	<div data-role="header">
+		<h1>Viewing Search Result</h1>
+		
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#home" data-transition="none" data-icon="home">Home</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div data-role="content">	
+		<div id="store-locator-container">
+      <div id="form-container">
+        <form id="user-location" >
+            <div id="submit-btn"><button data-role="button" id="submit">map it!</button></div>
+        </form>
+    <p id="getSingleCall"></p>
+      <div id="map-container">
+            <div id="map" ></div>
+                    <div id="loc-list">
+            <ul id="list"></ul>
+        </div>
+      </div>
+      </div>
+    </div>
+	</div>
+
+
+</div><!-- /page -->
+    <script type="text/javascript" src="cordova-2.6.0.js"></script>
+   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDD353fOPh-KBUQ-2ekPCg75uxXRn0D9Tk&sensor=false"></script>
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="js/handlebars-1.0.rc.1.min.js"></script>
+	<script type="text/javascript" src="jquery.mobile-1.1.0.min.js"></script>
+	<script type="text/javascript" src="js/init.js"></script>
+	<script type="text/javascript" src="js/jquery.storelocator.js"></script>
+	<script type="text/javascript" src="exercisetracker.js"></script>
+	   <link rel="stylesheet" href="jquery.mobile-1.0a3.min.css" />
+
+        <script type="text/javascript">
+            $(function () {
+              $('#map-container').storeLocator({ autoGeocode: true });
+          });
+        </script>
+  </body>
+</html>
